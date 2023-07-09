@@ -1,12 +1,11 @@
-window.addEventListener("load", function() {
-  const winPattern = [
-    ["0", "1", "2"],
-    ["3", "4", "5"],
-    ["6", "7", "8"],
-    ["0", "3", "6"],
-    ["1", "4", "7"],
-    ["2", "5", "8"],
-    ["0", "4", "8"],
+const winPattern = [
+    ["0", "1", "2"], 
+    ["3", "4", "5"], 
+    ["6", "7", "8"], 
+    ["0", "3", "6"], 
+    ["1", "4", "7"], 
+    ["2", "5", "8"], 
+    ["0", "4", "8"], 
     ["2", "4", "6"]
   ];
 
@@ -25,6 +24,16 @@ window.addEventListener("load", function() {
       initializeGame();
     }
   });
+
+  function changePlayer() {
+    if (player === 'X') {
+      player = '0';
+    } else if (player === '0') {
+      player = 'X';
+    }
+  }
+
+
   function initializeGame() {
 
     remainingCells = document.querySelectorAll(".container > div").length;
@@ -49,11 +58,7 @@ window.addEventListener("load", function() {
             gameOver = true;
             remainingCells = 0;
           } else {
-            if (player === 'X') {
-              player = '0';
-            } else if (player === '0') {
-              player = 'X';
-            }
+            changePlayer(); 
           }
         }
       }
@@ -99,6 +104,3 @@ window.addEventListener("load", function() {
     
   resetGame();
   
-
-
-});
